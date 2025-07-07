@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Echoes of Turkish</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>Echoes of Turkish</header>
-
-  <!-- 🔍 Arama ve 🌙 Dark Mode -->
-  <div style="text-align: center;">
-    <input type="text" id="searchBar" placeholder="Search...">
-    <button id="toggleDark">Toggle Dark Mode</button>
-  </div>
-
-  <!-- Mevcut kelime kartlarının olduğu yer -->
-  <!-- Kullanıcının gönderdiği index.html içeriği buraya yerleştirilecek -->
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -90,7 +70,46 @@
   </style>
 </head>
 <body>
-  <header>Echoes of Turkish</header>
+  
+<header>Echoes of Turkish</header>
+
+<!-- 🔍 Arama ve 🌙 Dark Mode -->
+<div style="text-align: center;">
+  <input type="text" id="searchBar" placeholder="Search...">
+  <button id="toggleDark">Toggle Dark Mode</button>
+</div>
+
+<!-- 🔠 Alfabetik filtre -->
+<div id="alphabetFilter">
+  <button class="filter-letter">A</button>
+  <button class="filter-letter">B</button>
+  <button class="filter-letter">C</button>
+  <button class="filter-letter">D</button>
+  <button class="filter-letter">E</button>
+  <button class="filter-letter">F</button>
+  <button class="filter-letter">G</button>
+  <button class="filter-letter">H</button>
+  <button class="filter-letter">I</button>
+  <button class="filter-letter">İ</button>
+  <button class="filter-letter">K</button>
+  <button class="filter-letter">L</button>
+  <button class="filter-letter">M</button>
+  <button class="filter-letter">N</button>
+  <button class="filter-letter">O</button>
+  <button class="filter-letter">Ö</button>
+  <button class="filter-letter">P</button>
+  <button class="filter-letter">R</button>
+  <button class="filter-letter">S</button>
+  <button class="filter-letter">Ş</button>
+  <button class="filter-letter">T</button>
+  <button class="filter-letter">U</button>
+  <button class="filter-letter">Ü</button>
+  <button class="filter-letter">V</button>
+  <button class="filter-letter">Y</button>
+  <button class="filter-letter">Z</button>
+  <button class="filter-letter">ALL</button>
+</div>
+
   <div class="row">
 
         <div class="flip-card">
@@ -856,22 +875,57 @@
         </div>
         </div>
 
-</body>
-</html>
 
-  <!-- 📎 Footer bağlantıları -->
-  <footer class="site-footer">
-    <a href="about.html">About Us</a> |
-    <a href="contact.html">Contact</a> |
-    <a href="howto.html">How to Use</a>
-  </footer>
+<!-- 📎 Footer bağlantıları -->
+<footer class="site-footer">
+  <a href="about.html">About Us</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="howto.html">How to Use</a>
+</footer>
 
-  <!-- 🌙 Dark Mode JS -->
-  <script>
-    const toggle = document.getElementById('toggleDark');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
+<!-- 🌙 Dark Mode + Arama + Harf JS -->
+<script>
+  // Dark Mode
+  const toggle = document.getElementById('toggleDark');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+
+  // Arama
+  document.getElementById("searchBar").addEventListener("keyup", function () {
+    const input = this.value.toLowerCase();
+    const cards = document.querySelectorAll(".flip-card");
+
+    cards.forEach(card => {
+      const frontText = card.querySelector(".flip-card-front").textContent.toLowerCase();
+      if (frontText.includes(input)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
     });
-  </script>
+  });
+
+  // Harf filtresi
+  const letterButtons = document.querySelectorAll('.filter-letter');
+  letterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const letter = button.textContent.toLowerCase();
+      const cards = document.querySelectorAll(".flip-card");
+
+      cards.forEach(card => {
+        const frontText = card.querySelector(".flip-card-front").textContent.toLowerCase();
+        if (letter === "all" || frontText.startsWith(letter)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      letterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
