@@ -25,6 +25,9 @@ header {
 }
 
 #searchBar {
+  height: 2.2rem;
+  font-size: 1.1rem;
+
   width: 240px;
   font-size: 1rem;
   border-radius: 6px;
@@ -39,6 +42,9 @@ header {
 }
 
 #alphabetFilter button {
+  font-size: 1.1rem;
+  padding: 0.6rem 1rem;
+
   margin: 0.25rem;
   padding: 0.45rem 0.75rem;
   border: none;
