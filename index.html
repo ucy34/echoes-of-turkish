@@ -25,7 +25,7 @@
       flex-wrap: wrap;
       margin-bottom: 40px;
       gap: 30px;
-      justify-content: center;
+      justify-content: flex-start;
     }
     .flip-card {
       background-color: transparent;
@@ -67,7 +67,12 @@
       font-size: 14px;
       line-height: 1.5;
     }
-  </style>
+  
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+</style>
 </head>
 <body>
   
@@ -927,6 +932,14 @@
       button.classList.add('active');
     });
   });
+
+// Mobil uyumlu kart dönüşü (dokunma ile)
+document.querySelectorAll(".flip-card").forEach(card => {
+  card.addEventListener("click", () => {
+    card.querySelector(".flip-card-inner").classList.toggle("flipped");
+  });
+});
+
 </script>
 </body>
 </html>
