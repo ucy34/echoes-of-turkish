@@ -62,14 +62,14 @@
     .flip-card-front {
       font-weight: bold;
     }
-.flip-card-back {
-  display: flex;
-  flex-direction: column;
+    .flip-card-back {
+      transform: rotateY(180deg);
+      font-size: 14px;
+      line-height: 1.5;
   align-items: flex-start;
-  justify-content: flex-start;
-  padding: 10px;
-  overflow-y: auto;
-}
+  justify-content: center;
+  padding-top: 10px;
+    }
   
 .flip-card-inner.flipped {
   transform: rotateY(180deg);
