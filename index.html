@@ -98,6 +98,10 @@ body.dark #toggleDark {
   color: #0d1a26;
 }
 
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
 </style>
 </head>
 <body>
@@ -970,6 +974,14 @@ document.querySelectorAll(".flip-card").forEach(card => {
   });
 });
 
+
+  // Mobil cihazlar için tıklama ile flip
+  document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const inner = card.querySelector('.flip-card-inner');
+      inner.classList.toggle('flipped');
+    });
+  });
 </script>
 </body>
 </html>
