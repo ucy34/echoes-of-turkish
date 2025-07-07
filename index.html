@@ -982,6 +982,15 @@ document.querySelectorAll(".flip-card").forEach(card => {
       inner.classList.toggle('flipped');
     });
   });
+
+  // Kartlara bağımsız tıklama ile flip aç/kapat (toggle)
+  document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const inner = card.querySelector('.flip-card-inner');
+      inner.classList.toggle('flipped');
+    });
+  });
+
 </script>
 </body>
 </html>
