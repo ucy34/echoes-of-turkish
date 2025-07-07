@@ -157,3 +157,13 @@ body.dark #alphabetFilter button.active {
   background-color: #e6f0ff;
   color: #0d1a26;
 }
+
+
+/* Kartları ortalamak için .row stil bloğu eklendi */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
