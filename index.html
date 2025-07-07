@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echoes of Turkish</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>Echoes of Turkish</header>
+
+  <!-- 🔍 Arama ve 🌙 Dark Mode -->
+  <div style="text-align: center;">
+    <input type="text" id="searchBar" placeholder="Search...">
+    <button id="toggleDark">Toggle Dark Mode</button>
+  </div>
+
+  <!-- Mevcut kelime kartlarının olduğu yer -->
+  <!-- Kullanıcının gönderdiği index.html içeriği buraya yerleştirilecek -->
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -835,11 +855,23 @@
           </div>
         </div>
         </div>
-<footer class="site-footer">
-  <a href="about.html">About Us</a> | 
-  <a href="contact.html">Contact</a> | 
-  <a href="howto.html">How to Use</a>
-</footer>
 
+</body>
+</html>
+
+  <!-- 📎 Footer bağlantıları -->
+  <footer class="site-footer">
+    <a href="about.html">About Us</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="howto.html">How to Use</a>
+  </footer>
+
+  <!-- 🌙 Dark Mode JS -->
+  <script>
+    const toggle = document.getElementById('toggleDark');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>
